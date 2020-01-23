@@ -13,3 +13,6 @@
 
 Route::get('/', 'StoriesController@index');
 Route::get('/stories/create', 'StoriesController@add');
+
+Route::get('/profile', 'ProfileController@index');
+Route::get('/profile/create', 'ProfileController@add');
