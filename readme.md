@@ -24,7 +24,8 @@ docker-laravel_db_1
 composer artisan とか じっこうする
 docker-laravel_app_1
 
-せつぞくのしかた
+##せつぞくのしかた
+
 ```
 docker exec -it docker-laravel_app_1 ash
 ```
@@ -37,6 +38,8 @@ docker exec -it docker-laravel_node_1 ash
 db
 
 docker-laravel_db_1
+
+docker-compose exec db bash -c 'mysql -uroot -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'
 
 ```
 docker exec -it docker-laravel_db_1 bash

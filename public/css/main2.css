@@ -1,0 +1,198 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Avenir Next";
+    background-color: #f2f2f2;
+}
+
+.header {
+    height: 80px;
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.titletitle {
+    float: left;
+}
+
+.titlea {
+    color: #000;
+    text-decoration: none;
+}
+
+.titletitle h1 {
+    padding-top: 7px;
+    font-size: 50px;
+    padding-left: 70px;
+}
+
+.titleicon {
+    overflow: hidden;
+    color: black;
+}
+
+.fa-images {
+    float: right;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-right: 100px;
+    color: black;
+}
+
+.fa-user {
+    float: right;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-right: 20px;
+    color: black;
+}
+
+.fa-user-edit {
+    float: right;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-right: 20px;
+    color: black;
+}
+
+
+.fa-user:hover,
+.fa-heart:hover,
+.fa-safari:hover {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.navbar-nav li {
+    list-style: none;
+}
+
+.nav-link,
+.dropdown-item {
+    font-size: 25px;
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.profile {
+    height: 260px;
+    background-color: #e6e6e6;
+    margin: 0 4% 40px 4%;
+}
+
+.profileimg img {
+    width: 20%;
+    border-radius: 50%;
+    float: left;
+    margin: 3% 3%;
+}
+
+.nav-link2 {
+    color: #000;
+    font-size: 70px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-link2:hover {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.aboutme {
+    font-size: 30px;
+    color: #000;
+}
+
+.update {
+    text-decoration: none;
+    color: #000;
+}
+
+.newtitle {
+    margin-left: 50px;
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.newtitle h1 {
+    font-size: 50px;
+
+}
+
+.container1 {
+    display: flex;
+    padding: 10px 3%;
+    background-color: #e6e6e6;
+    margin: 0 4%;
+}
+
+.icon {
+    text-align: center;
+    width: 140px;
+    margin: 0 1%;
+}
+
+.icon img {
+    width: 100%;
+    border-radius: 50%;
+    flex-direction: row;
+}
+
+.more {
+    padding-top: 150px;
+
+}
+
+.container2 {
+    background-color: #e6e6e6;
+    margin: 0 4%;
+    position: relative;
+}
+
+.closefriends {
+    display: flex;
+}
+
+.follows {
+    display: flex;
+}
+
+.titlestories {
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.titlestories h1 {
+    font-size: 50px;
+}
+
+.titleclose h2,
+.titlefollow h2 {
+    font-size: 35px;
+}
+
+.footer {
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    margin-top: 50px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.titlefooter h1 {
+    font-size: 40px;
+    padding-left: 70px;
+}

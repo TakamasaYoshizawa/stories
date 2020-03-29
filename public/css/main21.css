@@ -1,0 +1,125 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Avenir Next";
+    background-color: #f2f2f2;
+}
+
+.header {
+    height: 80px;
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 40px;
+
+}
+
+.titletitle {
+    float: left;
+}
+
+.titletitle h1{
+    padding-top: 7px;
+    font-size: 50px;
+    padding-left: 70px;
+}
+
+.titleicon {
+    overflow: hidden;
+}
+
+.fa-user {
+    float: right;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-right:100px;
+}
+
+.fa-heart {
+    float: right;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.fa-safari {
+    float: right;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-right:20px;
+}
+
+.title1 {
+    margin-bottom: 20px;
+}
+
+.title1 h1 {
+    font-size: 60px;
+}
+
+.form1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.h1 {
+    font-size: 30px;
+
+}
+
+.form {
+    width: 40%;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.create {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.profile {
+    text-align: center;
+    margin: 0px auto;
+}
+
+.entertitle {
+    text-align : center;
+}
+
+.enterprofile {
+  margin-top: 30px;
+}
+
+
+.footer {
+    height: 70px;
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+.titlefooter h1 {
+    font-size: 40px;
+    padding-left: 70px;
+}
+
+.btn-primary {
+  text-align: center;
+  margin:0px auto;
+}
+
+.createbtn {
+    background-color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color:rgb(20,20,20);
+}
+
+.createbtn:hover {
+    color: rgb(20,20,20,0.5);
+    cursor: pointer;
+}

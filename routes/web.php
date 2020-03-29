@@ -11,8 +11,45 @@
 |
 */
 
-Route::get('/', 'StoriesController@index');
-Route::get('/stories/create', 'StoriesController@add');
+Route::get('login'); 
 
-Route::get('/profile', 'ProfileController@index');
-Route::get('/profile/create', 'ProfileController@add');
+Route::match(['get','post','middleweare'=>'auth'], '/', 
+    'StoriesController@index',
+    'StoriesController@store',
+    'ProfileController@index',
+    'ProfileController@store'
+);
+
+Route::post('/', 'StoriesController@store');
+
+Route::match(['get','post','middleware'=>'auth'], 'stories/create',
+    'StoriesController@add',
+    'StoriesController@upload'
+);
+
+Route::post('/stories/create', 'StoriesController@upload');
+Route::get('/stories/delete', 'StoriesController@delete');
+Route::get('/profile/delete', 'ProfileController@delete');
+
+Route::match(['get','post','middleware'=>'auth'], 'profile/create',
+    'ProfileController@add',
+    'ProfileController@upload'
+);
+
+Route::group(['middleware' => 'auth','name'=>'profile'], function () {
+    Route::get('/profile/edit', 'ProfileController@edit');
+    Route::post('/profile/edit', 'ProfileController@update');
+});
+
+Route::group(['middleware' => 'auth','name'=>'profile'], function () {
+    Route::post('/profile/create', 'ProfileController@create');
+});
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('profile/create3', 'ProfileController@index3');
+});
+
+Route::get('/home', 'StoriesController@index')->name('home');
+
+Auth::routes();
+
