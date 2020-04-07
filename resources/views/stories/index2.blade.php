@@ -28,11 +28,11 @@
             <td>{{ \Str::limit($profile->body, 250) }}</td>
         </tr>
         <a href="{{ action('ProfileController@delete', ['id' => $profile->id]) }}">delete</a>
+        <a href="{{ action('ProfileController@update', ['id' => $profile->id]) }}" class="update">update</a>
     @endforeach
 
 </tbody>
 <br>
-<a href="{{ action('ProfileController@update', ['id' => $profile->id]) }}" class="update">update</a>
 </div>
 </div>
 
