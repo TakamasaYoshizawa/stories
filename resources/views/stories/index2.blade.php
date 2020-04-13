@@ -6,8 +6,6 @@
 <link rel="stylesheet" href="{{ asset('css/main2.css') }}">
 
 <div class="profile">
-
-
     <div class="name">
         @guest
         <a class="nav-link2" href="{{ route('register')}}">{{ __('Create Accout!')}}</a>
@@ -30,30 +28,24 @@
         <a href="{{ action('ProfileController@delete', ['id' => $profile->id]) }}">delete</a>
         <a href="{{ action('ProfileController@update', ['id' => $profile->id]) }}" class="update">update</a>
     @endforeach
-
 </tbody>
 <br>
 </div>
 </div>
 
 <div class="new">
-
     <div class="newtitle">
         <h1>New</h1>
     </div>
-
     <div class="container1">
-
         @foreach ($images as $image)
-        <img src="/storage/{{ $image->path . $image->name }}" class="images" style="height: 250px; width: 250px; border-radius: 50%;">
+        <img src="{{ $image->path }}" class="images" style="height: 250px; width: 250px; border-radius: 50%;">
        <a href="{{ action('StoriesController@delete', ['id' => $image->id]) }}">delete</a>
         @endforeach
-
-        <div class="more">
+    <div class="more">
             more...
-        </div>
     </div>
-
+    </div>
 </div>
 
 

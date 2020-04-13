@@ -24,13 +24,10 @@ class StoriesController extends Controller
   public function index(Request $request)
       {
         $images = Attachment::all();
-
         $cond_title = $request->cond_title;
       if ($cond_title != '') {
-          // 検索されたら検索結果を取得する
           $posts = Profile::where('title', $cond_title)->get();
       } else {
-          // それ以外はすべてのニュースを取得する
           $posts = Profile::all();
       }
          return view('stories.index2', compact('images','posts','cond_title'));
@@ -41,24 +38,18 @@ class StoriesController extends Controller
       return view('stories.create2');
     }
 
-
   public function store(Request $request)
   {
+    $form = $request->all();
     $d = new \DateTime();
     $d->setTimeZone(new \DateTimeZone('Asia/Tokyo'));
     $dir = $d->format('Y/m');
-    $path = sprintf('public/images/%s', $dir);
-
- 
+    $path = Storage::disk('s3')->putFile('/',$form['images'],'public');
     $data = $request->except('_token');
 
     foreach ($data['images'] as $k => $v) {
-
       $filename = '';
-
-
       $attachments = Attachment::take(1)->orderBy('id', 'desc')->get();
-
       foreach ($attachments as $attachment) {
         
         $filename = $attachment->id + 1 . '_' . $v->getClientOriginalName();
@@ -68,34 +59,25 @@ class StoriesController extends Controller
       if ($filename == false) {
         $filename = 1 . '_' . $v->getClientOriginalName();
       }
-
       $v->storeAs($path, $filename);
-
       $attachment_data = [
-        'path' => sprintf('images/%s/', $dir),
+        'path' => Storage::disk('s3'),
         'name' => $filename
-      ];
-      
+      ];   
       $a = new Attachment();
       $a->fill($attachment_data)->save();
     }
-
     unset($k, $v);
-
     return redirect('/');
   }
 
-
 public function delete(Request $request)
   {
-      // 該当するNews Modelを取得
       $images = Attachment::find($request->id);
-      // 削除する
       $images->delete();
       return redirect('/');
   }  
 
-  
   public function upload(Request $request)
     {
       $this->validate($request, [
@@ -108,7 +90,7 @@ public function delete(Request $request)
       ]);
 
       if ($request->file('file')->isValid([])) {
-        $path = $request->file->store('public');
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
         return view('stories.index2')->with('filename', basename($path));
       } else {
         return redirect('/')
