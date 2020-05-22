@@ -19,7 +19,7 @@
     <div class="form">
         <label for="photo" class="file">Choose Image or Video</label>
         <div class="post">
-            <input type="file" class="here" name="images[]">
+            <input type="file" class="here" name="images">
             
         </div>
     </div>

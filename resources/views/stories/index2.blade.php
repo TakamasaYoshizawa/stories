@@ -37,13 +37,14 @@
     <div class="newtitle">
         <h1>New</h1>
     </div>
+    
     <div class="container1">
         @foreach ($images as $image)
         <img src="{{ $image->path }}" class="images" style="height: 250px; width: 250px; border-radius: 50%;">
-       <a href="{{ action('StoriesController@delete', ['id' => $image->id]) }}">delete</a>
+       　<a href="{{ action('StoriesController@delete', ['id' => $image->id]) }}">delete</a>
         @endforeach
     <div class="more">
-            more...
+        more...
     </div>
     </div>
 </div>

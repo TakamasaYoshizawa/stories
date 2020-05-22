@@ -40,18 +40,20 @@ class StoriesController extends Controller
 
   public function store(Request $request)
   {
-    $form = $request->all();
+    $form = $request->file('images');
     $d = new \DateTime();
     $d->setTimeZone(new \DateTimeZone('Asia/Tokyo'));
     $dir = $d->format('Y/m');
-    $path = Storage::disk('s3')->putFile('/',$form['images'],'public');
+    $path = Storage::disk('s3')->putFile('/',$form,'public');
     $data = $request->except('_token');
 
     foreach ($data['images'] as $k => $v) {
+
       $filename = '';
+
       $attachments = Attachment::take(1)->orderBy('id', 'desc')->get();
+
       foreach ($attachments as $attachment) {
-        
         $filename = $attachment->id + 1 . '_' . $v->getClientOriginalName();
       }
       unset($attachment);
@@ -60,10 +62,12 @@ class StoriesController extends Controller
         $filename = 1 . '_' . $v->getClientOriginalName();
       }
       $v->storeAs($path, $filename);
+
       $attachment_data = [
-        'path' => Storage::disk('s3'),
+        'path' => $path,
         'name' => $filename
       ];   
+      
       $a = new Attachment();
       $a->fill($attachment_data)->save();
     }
@@ -78,25 +82,25 @@ public function delete(Request $request)
       return redirect('/');
   }  
 
-  public function upload(Request $request)
-    {
-      $this->validate($request, [
-        'file' => [
-          'required',
-          'file',
-          'image',
-          'mimes:jpeg,png',
-        ]
-      ]);
+  // public function upload(Request $request)
+  //   {
+  //     $this->validate($request, [
+  //       'file' => [
+  //         'required',
+  //         'file',
+  //         'image',
+  //         'mimes:jpeg,png',
+  //       ]
+  //     ]);
 
-      if ($request->file('file')->isValid([])) {
-        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
-        return view('stories.index2')->with('filename', basename($path));
-      } else {
-        return redirect('/')
-          ->back()
-          ->withInput()
-          ->withErrors();
-      }
-    }
+  //     if ($request->file('images')->isValid([])) {
+  //       $path = Storage::disk('s3')->putFile('/',$form,'public');
+  //       return view('stories.index2')->with('filename', basename($path));
+  //     } else {
+  //       return redirect('/')
+  //         ->back()
+  //         ->withInput()
+  //         ->withErrors();
+  //     }
+  //   }
 }
