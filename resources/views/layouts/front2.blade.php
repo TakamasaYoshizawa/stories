@@ -18,13 +18,13 @@
 <header>
     <div class="header">
         <div class="titletitle">
-            <h1><a href="{{ url('/')}}" class="titlea"><i class="fas fa-hat-wizard"></i> | Title</a></h1>
+            <h1><a href="{{ url('/')}}" class="titlea"><i class="fas fa-hat-wizard"></i> |Title</a></h1>
         </div>
         <div class="titleicon">
 
             <a href="{{ url('/stories/create') }}"><i class="far fa-images"></i></a>
-            <a href="{{ url('/register') }}"><i class="far fa-user"></i></a>
-            <a href="{{ url('/profile/create3') }} "><i class="far fa-user-edit"></i></a>
+            <a href="{{ url('/register') }}"><i class="far fa-user-edit"></i></a>
+            <a href="{{ url('/profile/create3') }} "><i class="far fa-user"></i></a>
 
 
             <ul class="navbar-nav">

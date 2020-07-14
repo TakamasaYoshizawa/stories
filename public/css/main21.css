@@ -86,6 +86,13 @@ body {
     margin: 0px auto;
 }
 
+.hii h1{
+    font-size: 100px;
+}
+
+.profileform {
+    font-size: 30px;
+}
 .entertitle {
     text-align : center;
 }
@@ -94,6 +101,10 @@ body {
   margin-top: 30px;
 }
 
+.title {
+    width: 100px;
+    padding: 150px;
+}
 
 .footer {
     height: 70px;
@@ -109,6 +120,13 @@ body {
 .btn-primary {
   text-align: center;
   margin:0px auto;
+}
+
+.primary {
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 50%;
+    padding-left: 50%;
 }
 
 .createbtn {

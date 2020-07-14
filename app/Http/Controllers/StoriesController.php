@@ -44,11 +44,10 @@ class StoriesController extends Controller
     $d = new \DateTime();
     $d->setTimeZone(new \DateTimeZone('Asia/Tokyo'));
     $dir = $d->format('Y/m');
-    $path = Storage::disk('s3')->putFile('/',$form,'public');
+    $path = sprintf('public/images/%s', $dir);
     $data = $request->except('_token');
 
     foreach ($data['images'] as $k => $v) {
-
       $filename = '';
 
       $attachments = Attachment::take(1)->orderBy('id', 'desc')->get();
@@ -62,12 +61,10 @@ class StoriesController extends Controller
         $filename = 1 . '_' . $v->getClientOriginalName();
       }
       $v->storeAs($path, $filename);
-
       $attachment_data = [
-        'path' => $path,
+        'path' => sprintf('/images/%s/', $dir),
         'name' => $filename
       ];   
-      
       $a = new Attachment();
       $a->fill($attachment_data)->save();
     }
@@ -94,7 +91,7 @@ public function delete(Request $request)
   //     ]);
 
   //     if ($request->file('images')->isValid([])) {
-  //       $path = Storage::disk('s3')->putFile('/',$form,'public');
+  //       $path = $request->file->store('public');
   //       return view('stories.index2')->with('filename', basename($path));
   //     } else {
   //       return redirect('/')

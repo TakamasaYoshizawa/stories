@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/main21.css') }}">
 
-<h2>ProfileCreate</h2>
+<div class="hii"><h1>ProfileCreate</h1></div>
 
  <form action="{{ action('ProfileController@create') }}" method="post" enctype="multipart/form-data">
  @if (count($errors) > 0)
@@ -18,8 +18,9 @@
 
  <h3>Your Profile Here</h3>
  <div class="profile">
- <label class="profileform">Enter Your Profile</label>
- <input type="entertitle" name="title" value="{{ old('title') }}">
+ <div class="profileform"><h1>Enter Your Profile</h1></div>
+ <br>
+ <input type="text" name="title" value="{{ old('title') }}" class="title">
  <br>
  <textarea class="enterprofile" name="body" rows=5>{{ old('introduce') }}</textarea>
  </div>
@@ -27,8 +28,9 @@
 
 
  {{ csrf_field() }}
-
- <input type="submit" class="btn btn-primary" value="Create!">
+<div class="primary">
+ <input type="submit" class="btn-primary" value="Create!">
+ </div>
 </form>
 
 

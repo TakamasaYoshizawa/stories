@@ -25,7 +25,7 @@
             <td>{{ \Str::limit($profile->title, 100) }}</td>
             <td>{{ \Str::limit($profile->body, 250) }}</td>
         </tr>
-        <a href="{{ action('ProfileController@delete', ['id' => $profile->id]) }}">delete</a>
+        <a href="{{ action('ProfileController@delete', ['id' => $profile->id]) }}" class="update">delete</a>
         <a href="{{ action('ProfileController@update', ['id' => $profile->id]) }}" class="update">update</a>
     @endforeach
 </tbody>
@@ -40,8 +40,10 @@
     
     <div class="container1">
         @foreach ($images as $image)
-        <img src="{{ $image->path }}" class="images" style="height: 250px; width: 250px; border-radius: 50%;">
-       　<a href="{{ action('StoriesController@delete', ['id' => $image->id]) }}">delete</a>
+
+        <img src="/storage/{{ $image->path . $image->name }}" class="images" style="height: 250px; width: 250px; border-radius: 50%;">
+
+       　<a href="{{ action('StoriesController@delete', ['id' => $image->id]) }}" class="update">delete</a>
         @endforeach
     <div class="more">
         more...
